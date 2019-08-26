@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --background-dark-color: #333;
+  --background-light-color: #ddd;
+  --text-dark-color: #333;
+  --text-light-color: #ddd;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: var(--background-dark-color);
+  color: var(--text-light-color);
+  height: auto;
+}
+
+.showcase::after {
+  content:'';
+  height: 100vh;
+  width: 100%;
+  background-image: url(../img/laptop1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  filter: blur(12px);
+  -webkit-filter: blur(12px);
+  transition: all 0.8s;
+}
+
+.showcase:hover::after {
+  filter: blur(0px);
+  -webkit-filter: blur(0px);
+}
+
+.showcase:hover .content {
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
+}
+
+.content {
+  position: absolute;
+  text-align: center;
+  z-index: 1;
+  top: 10%;
+  left: 50%;
+  width: 18rem;
+  height: 22rem;
+  margin-top: 3rem;
+  margin-left: -9rem;
+  transition: margin 0.8s, filter 0.8s;
+}
+
+.content .logo {
+  width: 15rem;
+}
+
+.content .title {
+  font-size: 2.3rem;
+  margin-top: 1rem;
+}
+
+.content .text {
+  line-height: 1.5rem;
+  margin-top: 1rem;
+}
+
+.container {
+  max-width: 60rem;
+  margin: auto;
+  overflow: hidden;
+  padding: 4rem 2rem;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+}
+
+.grid-3 div h3, .grid-2 div h3 {
+  padding: 1rem 0rem;
+}
+.grid-2 div p{
+  text-align: justify;
+}
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+}
+
+footer {
+  padding: 1.5rem;
+}
+
+.center {
+  text-align: center;
+  margin: auto;
+}
+
+.bg-light {
+  background: var(--background-light-color);
+  color: var(--text-dark-color);
+}
+
+.bg-dark {
+  background: var(--background-dark-color);
+  color: var(--text-light-color);
+}
+
+@media(max-width: 560px) {
+  .showcase::after {
+    height: 50vh;
+  }
+
+  .content {
+    top:5%;
+    margin-top: 0.25rem;
+  }
+
+  .content .logo {
+    width: 8rem;
+  }
+
+  .content .text {
+    display: none;
+  }
+
+  .content .title {
+    font-size: 1.8rem;
+  }
+
+  .grid-2, .grid-3 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .services div:not(:last-child) {
+    border-bottom: #444 solid 0.1rem;
+    padding: 1rem 1rem;
+  }
+}
