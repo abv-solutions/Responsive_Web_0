@@ -1,0 +1,8 @@
+heroku git:remote -a responsive-above-solutions
+git push heroku master
+
+Galaxy S7  		 350 x  640 ;   4
+Galaxy S8  		 350 x  740 ;   4
+Galaxy S10 		 412 x  869 ; 3.5
+Asus T101 landscape	1280 x  660 ;   3
+Asus T101 vertical	 800 x 1110 ;   3
