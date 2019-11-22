@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+/* Globals settings */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+/* Global variables */
+:root {
+  --text-dark-color: #333;
+  --text-light-color: #ddd;
+  --background-dark-color-op: rgba(51, 51, 51, 0.95);
+  --background-light-color-op: rgba(221, 221, 221, 0.9);
+  --background-light-color: #ddd;
+  --background-dark-color: #333;
+}
+/* Utility classes */
+.center {
+  align-items: center;
+  text-align: center;
+  margin: auto;
+}
+.container {
+  max-width: 60rem;
+  margin: auto;
+  overflow: hidden;
+  padding: 4rem 2rem;
+}
+.header-3 {
+  padding: 1rem 0rem;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.bg-light {
+  background-color: var(--background-light-color);
+  color: var(--text-dark-color);
+}
+.bg-dark {
+  background-color: var(--background-dark-color);
+  color: var(--text-light-color);
+}
+/* Animations */
+@keyframes animation {
+  0% {left: 50%; top: -10%;}
+  100% {left: 50%; top: 40%;}
+}
+@keyframes animation_landscape {
+  0% {left: 50%; top: 15%;}
+  100% {left: 50%; top: 65%;}
+}
+@keyframes animation_vertical {
+  0% {left: 50%; top: 15%;}
+  100% {left: 50%; top: 35%;}
+}
+/* Body */
+body {
+  font-family: 'Roboto', sans-serif;
+  height: auto;
+}
+/* Showcase section */
+.showcase:after {
+  content:'';
+  min-height: 20rem;
+  height: 100vh;
+  width: 100%;
+  background-image: url(../img/laptop1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  filter: blur(12px);
+  -webkit-filter: blur(12px);
+  transition: all 0.8s;
+}
+.showcase:hover:after {
+  filter: blur(0px);
+  -webkit-filter: blur(0px);
+}
+.showcase-content {
+  position: absolute;
+  z-index: 1;
+  width: 18rem;
+  height: 22rem;
+  left:50%;
+  top:40%;
+  text-align: center;
+  margin-left:-9rem;
+  margin-top:-11rem;
+  animation-name: animation;
+  animation-duration: 2s;
+}
+.showcase-content .logo {
+  width: 15rem;
+}
+.showcase-content .title {
+  font-size: 2.3rem;
+  margin-top: 1rem;
+}
+.showcase-content .text {
+  line-height: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+.logo, .title, .text {
+  transition: filter 0.8s;
+}
+.showcase:hover .logo, .showcase:hover .title, .showcase:hover .text {
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
+}
+.btn {
+  width: 8rem;
+  padding: 0.7rem 1rem;
+  text-decoration: none;
+  border: var(--background-light-color) 1px solid;
+  border-radius: 20px;
+  opacity: 0.7;
+  transition: opacity 0.5s;
+}
+.btn:hover {
+  opacity: 1;
+  filter: blur(0px);
+  -webkit-filter: blur(0px);
+}
+/* Services section */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+}
+/* About section */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+}
+.grid-2 div p{
+  text-align: justify;
+}
+/* Footer section */
+footer {
+  padding: 1rem;
+}
+/* Media queries */
+@media (max-width: 560px) {
+  .showcase:after {
+    height: 50vh;
+  }
+  .showcase-content {
+    top:35%;
+    animation-name: animation_vertical;
+    animation-duration: 2s;
+  }
+  .showcase-content .logo {
+    width: 7rem;
+  }
+  .showcase-content .text {
+    display: none;
+  }
+  .showcase-content .title {
+    font-size: 1.8rem;
+    margin-top: 0rem;
+    margin-bottom: 1.5rem;
+  }
+  .grid-2, .grid-3 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .services div:not(:last-child) {
+    border-bottom: #444 solid 0.1rem;
+    padding: 1rem 1rem;
+  }
+}
+@media(max-height: 500px) {
+  .showcase-content {
+    top: 65%;
+    animation-name: animation_landscape;
+    animation-duration: 2s;
+  }
+  .showcase-content .logo {
+    width: 8rem;
+  }
+  .showcase-content .text {
+    display: none;
+  }
+  .showcase-content .title {
+    font-size: 1.8rem;
+    margin-top: 0rem;
+    margin-bottom: 1.5rem;
+  }
+}
+@media(max-height: 500px) and (max-width: 560px) {
+  .showcase:after {
+    height: 100vh;
+  }
+}
